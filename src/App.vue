@@ -1,23 +1,19 @@
+/* eslint-disable eol-last */
+
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+  <div id="app" class="todoapp">
+    <header class="header">
+      <h1>todos</h1>
+      <input class="new-todo"
+        autofocus autocomplete="off"
+        placeholder="What needs to be done?">
+    </header>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App'
-}
-</script>
+<style src="todomvc-app-css/index.css"></style>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<script>
+export default {}
+</script>
+/* eslint-disable eol-last */
