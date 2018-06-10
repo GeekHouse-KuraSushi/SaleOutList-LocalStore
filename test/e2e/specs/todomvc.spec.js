@@ -2,8 +2,7 @@ module.exports = {
     '應顯示程式標題與輸入欄位'(browser) {
     const devServer = browser.globals.devServerURL
         browser
-            .url(devServer)
-            .waitForElementVisible('#app', 5000)
+            .page.todomvc().show()
             .assert.elementPresent('.header')
             .assert.containsText('h1', 'todos')
             .assert.elementPresent('.new-todo')
@@ -13,8 +12,7 @@ module.exports = {
         const devServer = browser.globals.devServerURL;
         const todo = 'This is new todo'
             browser
-                .url(devServer)
-                .waitForElementVisible('#app', 5000)
+                .page.todomvc().show()
                 .setValue('.new-todo',[todo,browser.Keys.ENTER])
                 .assert.value('.new-todo','')
                 .end();
@@ -23,8 +21,7 @@ module.exports = {
         const devServer = browser.globals.devServerURL;
         const  todo = 'This is new todo';
         browser
-        .url(devServer)
-        .waitForElementVisible('#app', 5000)
+        .page.todomvc().show()
         .setValue('.new-todo',[todo,browser.Keys.ENTER])
         .waitForElementVisible('.todo-list > .todo:first-child',1000)
         .assert.containsText('.todo-list > .todo:first-child > .view > label', todo)
@@ -34,8 +31,7 @@ module.exports = {
     '沒新增列表隱藏'(browser){
         const devServer = browser.globals.devServerURL;
         browser
-        .url(devServer)
-        .waitForElementVisible('#app', 5000)
+        .page.todomvc().show()
         .assert.hidden('.main',1000)
         .end();
     }
