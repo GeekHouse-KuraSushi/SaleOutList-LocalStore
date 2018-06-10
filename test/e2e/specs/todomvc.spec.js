@@ -30,5 +30,13 @@ module.exports = {
         .assert.containsText('.todo-list > .todo:first-child > .view > label', todo)
         .end();
         
+    },
+    '沒新增列表隱藏'(browser){
+        const devServer = browser.globals.devServerURL;
+        browser
+        .url(devServer)
+        .waitForElementVisible('#app', 5000)
+        .assert.hidden('.main',1000)
+        .end();
     }
 }
