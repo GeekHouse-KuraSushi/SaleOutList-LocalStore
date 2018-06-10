@@ -1,7 +1,7 @@
 <template>
     <input class="new-todo"
         autofocus autocomplete="off"
-        placeholder="What needs to be done?"
+        placeholder="什麼東西賣完了？"
         v-model="newTodo"
         @keyup.enter="addTodo">
 </template>
