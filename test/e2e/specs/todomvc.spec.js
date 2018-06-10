@@ -19,4 +19,16 @@ module.exports = {
                 .assert.value('.new-todo','')
                 .end();
         },
+    '新增測試'(browser){
+        const devServer = browser.globals.devServerURL;
+        const  todo = 'This is new todo';
+        browser
+        .url(devServer)
+        .waitForElementVisible('#app', 5000)
+        .setValue('.new-todo',[todo,browser.Keys,ENTER])
+        .waitForElementVisible('.todo-list > .todo:first-child',1000)
+        .assert.containsText('.todo-list > .todo:first-child > view > label', todo)
+        .end();
+        
+    }
 }

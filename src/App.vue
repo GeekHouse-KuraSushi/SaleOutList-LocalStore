@@ -10,6 +10,16 @@
         v-model="newTodo"
         @keyup.enter="addTodo">
     </header>
+    <section class="main">
+      <ul class="todo-list">
+        <li class="todo"
+          v-for="todo in todos" :key="todo.title">
+          <div class="view">
+            <label>{{todo.title}}</label>
+          </div>
+        </li>
+      </ul>
+    </section>>
   </div>
 </template>
 
@@ -18,13 +28,19 @@
 <script>
 export default {
   data () {
-    return { newTodo: '' }
+    return {
+      newTodo: '',
+      todos: []}
   },
   methods: {
     addTodo () {
+      const todo = this.newTodo && this.newTodo.trim()
+      if (!todo) { return }
+      this.todos.push({title: todo, completed: false})
       this.newTodo = ''
     }
   }
 }
 </script>
+
 /* eslint-disable eol-last */
