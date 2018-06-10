@@ -3,7 +3,7 @@
 <template>
   <div id="app" class="todoapp">
     <header class="header">
-      <h1>todos</h1>
+      <h1>已售完</h1>
       <todo-input @add-todo="addTodo"></todo-input>
     </header>
     <section class="main" v-show="todos.length" v-cloak>

@@ -9,7 +9,7 @@ module.exports = function (browser){
   this.shouldSeeTitleAndInput = () => {
     return browser
       .assert.elementPresent('.header')
-      .assert.containsText('h1', 'todos')
+      .assert.containsText('h1', '已售完')
       .assert.elementPresent('.new-todo')
   }
   this.makeTodoCompleted = () => {
