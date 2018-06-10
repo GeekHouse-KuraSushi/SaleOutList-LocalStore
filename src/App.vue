@@ -9,8 +9,10 @@
     <section class="main" v-show="todos.length" v-cloak>
       <ul class="todo-list">
         <li class="todo"
+          :class="{ completed: todo.completed}"
           v-for="todo in todos" :key="todo.title">
           <div class="view">
+            <input class="toggle" type="checkbox" v-model="todo.completed">
             <label>{{todo.title}}</label>
           </div>
         </li>

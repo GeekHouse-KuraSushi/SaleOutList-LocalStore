@@ -32,5 +32,17 @@ module.exports = {
         .page.todomvc().show()
         .assert.hidden('.main',1000)
         .end();
-    }
+    },
+    '完成後打勾'(browser){
+        const devServer = browser.globals.devServerURL;
+        const  todo = 'This is new todo';
+        browser
+        .page.todomvc().show()
+        .setValue('.new-todo',[todo,browser.Keys.ENTER])
+        .waitForElementVisible('.todo-list > .todo:first-child',1000)
+        .assert.containsText('.todo-list > .todo:first-child > .view > label', todo)
+        .page.todomvc().makeTodoCompleted()
+        .page.todomvc().shouldCompleteTodo()
+        .end();
+    },
 }

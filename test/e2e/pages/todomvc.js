@@ -1,4 +1,5 @@
 module.exports = function (browser){
+  const firstTodoItem = '.todo-list > .todo:first-child';
   this.show = () => {
     const devServer = browser.globals.devServerURL
     return browser
@@ -10,5 +11,13 @@ module.exports = function (browser){
       .assert.elementPresent('.header')
       .assert.containsText('h1', 'todos')
       .assert.elementPresent('.new-todo')
+  }
+  this.makeTodoCompleted = () => {
+    return browser
+      .click(firstTodoItem + '>.view > .toggle')
+  }
+  this.shouldCompleteTodo = () => {
+    return browser
+      .assert.cssClassPresent(firstTodoItem, 'completed')
   }
 }
