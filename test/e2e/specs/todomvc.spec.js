@@ -3,9 +3,7 @@ module.exports = {
     const devServer = browser.globals.devServerURL
         browser
             .page.todomvc().show()
-            .assert.elementPresent('.header')
-            .assert.containsText('h1', 'todos')
-            .assert.elementPresent('.new-todo')
+            .page.todomvc().shouldSeeTitleAndInput()
             .end();
     },
     '輸入欄位應該在輸入代辦事項後清空'(browser) {
