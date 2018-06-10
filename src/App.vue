@@ -10,11 +10,10 @@
       <ul class="todo-list">
         <li class="todo"
           :class="{ completed: todo.completed}"
-          v-for="todo in todos" :key="todo.title">
+          v-for="todo in todos" :key="todo.title"
+          @click="removeTodo(todo)">
           <div class="view">
-            <input class="toggle" type="checkbox" v-model="todo.completed">
             <label>{{todo.title}}</label>
-            <button class="destroy" @click="removeTodo(todo)"></button>
           </div>
         </li>
       </ul>

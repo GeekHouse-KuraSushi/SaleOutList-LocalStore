@@ -23,7 +23,7 @@ module.exports = function (browser){
   this.deleteTodo = () => {
     return browser
       .moveToElement('.todo-list > .todo:first-child',10,10)
-      .click('.todo-list > .todo:first-child > .view > button.destroy');
+      .click('.todo-list > .todo:first-child');
   }
   this.shouldGetEmptyTodoList = () => {
     return browser
