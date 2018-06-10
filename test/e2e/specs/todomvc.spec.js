@@ -45,4 +45,16 @@ module.exports = {
         .page.todomvc().shouldCompleteTodo()
         .end();
     },
+    '刪除事項'(browser){
+        const devServer = browser.globals.devServerURL;
+        const  todo = 'This is new todo';
+        browser
+        .page.todomvc().show()
+        .setValue('.new-todo',[todo,browser.Keys.ENTER])
+        .waitForElementVisible('.todo-list > .todo:first-child',1000)
+        .assert.containsText('.todo-list > .todo:first-child > .view > label', todo)
+        .page.todomvc().deleteTodo()
+        .page.todomvc().shouldGetEmptyTodoList()
+        .end();
+    },
 }
