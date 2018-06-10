@@ -25,9 +25,9 @@ module.exports = {
         browser
         .url(devServer)
         .waitForElementVisible('#app', 5000)
-        .setValue('.new-todo',[todo,browser.Keys,ENTER])
+        .setValue('.new-todo',[todo,browser.Keys.ENTER])
         .waitForElementVisible('.todo-list > .todo:first-child',1000)
-        .assert.containsText('.todo-list > .todo:first-child > view > label', todo)
+        .assert.containsText('.todo-list > .todo:first-child > .view > label', todo)
         .end();
         
     }
